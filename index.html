@@ -205,6 +205,90 @@
       font-weight: 700;
     }
     
+    /* E-Waste Statistics Section */
+    .stats-section {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: white;
+      padding: 5rem 0;
+      text-align: center;
+    }
+    
+    .stats-section h2 {
+      color: white;
+      margin-bottom: 2rem;
+    }
+    
+    .stats-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .stat-item {
+      flex: 1;
+      min-width: 200px;
+      max-width: 300px;
+      padding: 2rem 1rem;
+      border-radius: 12px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    
+    .stat-item:hover {
+      transform: translateY(-10px);
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+    
+    .stat-percentage {
+      font-size: 4rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: white;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .stat-percentage::after {
+      content: "%";
+      font-size: 2rem;
+      position: absolute;
+      top: 0.5rem;
+      right: -1.5rem;
+    }
+
+    .stat-value {
+      font-size: 4rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: white;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      position: relative;
+      display: inline-block;
+    }
+
+    .stat-value::after {
+      font-size: 2rem;
+      position: absolute;
+      top: 0.5rem;
+      right: -1.5rem;
+    }
+    
+    .stat-description {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    
+    .stats-intro {
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
     footer {
       background-color: var(--dark);
       color: white;
@@ -317,6 +401,15 @@
         flex-wrap: wrap;
         gap: 1rem;
       }
+      
+      .stat-percentage {
+        font-size: 3rem;
+      }
+      
+      .stat-percentage::after {
+        font-size: 1.5rem;
+        right: -1.2rem;
+      }
     }
   </style>
 </head>
@@ -338,6 +431,7 @@
       <div class="nav-container">
         <a href="#about" class="nav-link">About</a>
         <a href="#get-involved" class="nav-link">Donate Devices</a>
+        <a href="#statistics" class="nav-link">E-Waste Statistics</a>
         <a href="#alternative-disposal" class="nav-link">E-Waste Options</a>
       </div>
     </div>
@@ -361,6 +455,30 @@
         <div class="step-card">
           <h3>Distribute</h3>
           <p>We work with schools, community centers, and social service organizations to identify recipients who would benefit most from access to technology.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="statistics" class="stats-section">
+    <div class="container">
+      <h2>The E-Waste Crisis</h2>
+      <p class="stats-intro">Electronic waste is one of the fastest-growing waste streams worldwide. Here are some eye-opening statistics about e-waste and its impact on our planet and communities.</p>
+      
+      <div class="stats-container">
+        <div class="stat-item">
+          <div class="stat-percentage">70</div>
+          <p class="stat-description">Of toxic waste is E-waste</p>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-percentage">85</div>
+          <p class="stat-description">of the worlds waste ends up in land fills</p>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-value">365,000</div>
+          <p class="stat-description">of e-waste is created annually in Malaysia</p>
         </div>
       </div>
     </div>
@@ -419,7 +537,14 @@
   
   <footer>
     <div class="container">
-      <p>&copy; 2025 Laptop Refurbishing Program</p>
+      <p>&copy; 2025 Laptop Refurbishing Program. All Rights Reserved.</p>
+      <p>A 501(c)(3) non-profit organization dedicated to digital equity and environmental sustainability.</p>
+      <div class="social-links">
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+      </div>
     </div>
   </footer>
 </body>
