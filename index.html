@@ -12,6 +12,8 @@
       --dark: #1e1b4b;         /* Very dark purple/navy */
       --light: #f5f3ff;        /* Very light purple tint */
       --accent: #8b5cf6;       /* Medium purple accent */
+      --warning: #f43f5e;      /* Warning red */
+      --warning-light: #ffe4e6; /* Light warning background */
     }
     
     * {
@@ -57,6 +59,13 @@
       color: var(--primary-dark);
       font-weight: 700;
       letter-spacing: -0.025em;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-dark);
+      font-weight: 700;
     }
     
     p {
@@ -259,9 +268,10 @@
       top: 0.5rem;
       right: -1.5rem;
     }
-
-    .stat-value {
-      font-size: 4rem;
+    
+    /* New class for displaying numbers without percentage sign */
+    .stat-number {
+      font-size: 3.5rem;
       font-weight: 800;
       margin-bottom: 1rem;
       color: white;
@@ -269,12 +279,15 @@
       position: relative;
       display: inline-block;
     }
-
-    .stat-value::after {
-      font-size: 2rem;
-      position: absolute;
-      top: 0.5rem;
-      right: -1.5rem;
+    
+    /* Class for displaying units after the number */
+    .stat-unit {
+      font-size: 1.2rem;
+      font-weight: 600;
+      display: block;
+      color: var(--secondary);
+      margin-top: -0.5rem;
+      margin-bottom: 0.5rem;
     }
     
     .stat-description {
@@ -380,6 +393,107 @@
       color: var(--primary);
     }
     
+    /* Guidelines section styles */
+    .guidelines-section {
+      background-color: white;
+      padding: 4rem 0;
+    }
+    
+    .guidelines-card {
+      background-color: var(--light);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin: 2rem auto;
+      border: 1px solid rgba(124, 58, 237, 0.2);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+    
+    .guidelines-intro {
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+      text-align: center;
+    }
+    
+    .guidelines-list {
+      list-style-type: none;
+      margin-bottom: 2rem;
+    }
+    
+    .guidelines-list li {
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .guidelines-list li::before {
+      content: "•";
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1.2rem;
+      position: absolute;
+      left: 0;
+    }
+    
+    .guidelines-list strong {
+      color: var(--primary-dark);
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    
+    .warning-box {
+      background-color: var(--warning-light);
+      border-left: 4px solid var(--warning);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .warning-box h3 {
+      color: var(--warning);
+      margin-bottom: 0.5rem;
+    }
+    
+    .device-examples {
+      margin-top: 2rem;
+    }
+    
+    .device-examples h3 {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    
+    .device-image-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .device-image {
+      max-width: 250px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border: 1px solid #eee;
+    }
+    
+    .final-note {
+      font-style: italic;
+      font-weight: 500;
+      margin-top: 2rem;
+      text-align: center;
+      color: var(--primary-dark);
+    }
+    
+    .disclaimer {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      font-style: italic;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    
     @media (max-width: 768px) {
       h1 {
         font-size: 2.2rem;
@@ -393,7 +507,7 @@
         padding: 0 1.5rem;
       }
       
-      .donate-card {
+      .donate-card, .guidelines-card {
         padding: 1.5rem;
       }
       
@@ -409,6 +523,14 @@
       .stat-percentage::after {
         font-size: 1.5rem;
         right: -1.2rem;
+      }
+      
+      .stat-number {
+        font-size: 2.5rem;
+      }
+      
+      .device-image {
+        max-width: 100%;
       }
     }
   </style>
@@ -431,6 +553,7 @@
       <div class="nav-container">
         <a href="#about" class="nav-link">About</a>
         <a href="#get-involved" class="nav-link">Donate Devices</a>
+        <a href="#guidelines" class="nav-link">Guidelines</a>
         <a href="#statistics" class="nav-link">E-Waste Statistics</a>
         <a href="#alternative-disposal" class="nav-link">E-Waste Options</a>
       </div>
@@ -460,6 +583,66 @@
     </div>
   </section>
   
+  <section id="guidelines" class="guidelines-section">
+    <div class="container">
+      <div class="guidelines-intro">
+        <h2>Donation Guidelines</h2>
+        <p>To ensure safe, responsible, and sustainable donation of devices, we've established guidelines for all donated items. These requirements help us maintain safety for our staff and ensure we can effectively refurbish devices.</p>
+      </div>
+      
+      <div class="guidelines-card">
+        <h3>Safety Requirements</h3>
+        <p>All donated items should meet the following criteria:</p>
+        
+        <ul class="guidelines-list">
+          <li>
+            <strong>No loose or exposed wiring</strong>
+            <p>Devices with frayed, exposed, or damaged wiring will not be accepted, due to the safety hazards in using such devices and the functionality of devices with damaged wiring.</p>
+          </li>
+          
+          <li>
+            <strong>No sharps/broken parts</strong>
+            <p>Devices which have substantial external damage or broken parts that may injure someone while handling it, i.e sharp broken edges of a laptop, glass shards off a screen, etc will not be accepted.</p>
+          </li>
+          
+          <li>
+            <strong>No bloated/swollen batteries</strong>
+            <p>Swollen/bloated batteries are extremely dangerous as they have the chance to rapidly combust from the most minor impact, and will not be accepted. We urge such devices to be taken to a professional to recycle safely or replace the battery.</p>
+          </li>
+          
+          <li>
+            <strong>No leaking/broken batteries</strong>
+            <p>Any devices with batteries which have crusted/are leaking/broken will not be accepted, as they release toxic compounds and should be disposed of safely by a professional.</p>
+          </li>
+        </ul>
+        
+        <div class="device-examples">
+          <h3>Unacceptable Devices</h3>
+          <p>Attached below are pictures of devices that <strong>DO NOT</strong> meet the safety criteria:</p>
+          
+          <div class="device-image-container">
+            <img src="/assets/bloated_battery.jpeg" alt="Damaged laptop with exposed wiring" class="device-image">
+            <img src="/assets/broken_screen_sharp.jpeg" alt="Device with swollen battery" class="device-image">
+            <img src="/assets/exposed_wiring.webp" alt="Device with broken screen and sharp edges" class="device-image">
+          </div>
+        </div>
+        
+        <div class="warning-box">
+          <h3>Important Note</h3>
+          <p>We reserve the right to reject any devices if we think they do not meet the criteria outlined above.</p>
+        </div>
+        
+        <h3>Acceptable Device Types</h3>
+        <p>Along with the safety requirements, these devices are limited to <strong>Smartphones, Laptops, IPads and modern peripheral devices.</strong> Outdated or obsolete devices will not be accepted.</p>
+        
+        <h3>Data Security</h3>
+        <p>Before donating devices, they should all be wiped/formatted correctly to ensure no personal data remains on the device. To do this, refer to our guide on <a href="#" style="color: var(--primary-dark); font-weight: 600;">How to Format Devices for Mac and Windows</a>.</p>
+        
+        <p class="final-note">Thank you for helping us ensure a safe and effective refurbishing program!</p>
+      </div>
+    </div>
+  </section>
+  
   <section id="statistics" class="stats-section">
     <div class="container">
       <h2>The E-Waste Crisis</h2>
@@ -467,17 +650,20 @@
       
       <div class="stats-container">
         <div class="stat-item">
-          <div class="stat-percentage">70</div>
-          <p class="stat-description">Of toxic waste is E-waste</p>
+          <div class="stat-number">70</div>
+          <span class="stat-unit">million tons</span>
+          <p class="stat-description">of toxic waste generated globally as e-waste annually</p>
         </div>
         
         <div class="stat-item">
-          <div class="stat-percentage">85</div>
-          <p class="stat-description">of the worlds waste ends up in land fills</p>
+          <div class="stat-number">85</div>
+          <span class="stat-unit">million devices</span>
+          <p class="stat-description">discarded annually in the United States alone</p>
         </div>
         
         <div class="stat-item">
-          <div class="stat-value">365,000</div>
+          <div class="stat-number">365,000</div>
+          <span class="stat-unit">tons</span>
           <p class="stat-description">of e-waste is created annually in Malaysia</p>
         </div>
       </div>
